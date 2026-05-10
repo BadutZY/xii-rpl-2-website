@@ -152,7 +152,7 @@ export const studentsData: Student[] = [
     id: 29, no: "29", name: "Rizky", fullName: "RIZKY MAULANA PUTRA",
     age: 17, birthdate: "06 Maret 2009", position: "Developer", kreditPoin: "100",
     photo: "/photos/rizky.jpg",
-    socials: { instagram: "@rzky.mp_36", twitter: "@BadutZYY_", youtube: "@badutzy", github: "BadutZY", website: "rizky-website.vercel.app", game: "https://box-siege.vercel.app" }
+    socials: { instagram: "@rzky.mp_36", twitter: "@BadutZYY_", youtube: "@badutzy", github: "BadutZY", website: "badutzy.vercel.app", game: "https://box-siege.vercel.app" }
   },
   {
     id: 30, no: "30", name: "Sandi", fullName: "SANDI SANJAYA",
