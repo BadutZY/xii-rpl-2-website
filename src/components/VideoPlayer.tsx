@@ -16,7 +16,6 @@ import {
   type VideoItem,
 } from "@/data/videos";
 
-// Extend Window so TypeScript recognises Instagram's embed script global
 declare global {
   interface Window {
     instgrm?: {
@@ -27,9 +26,6 @@ declare global {
   }
 }
 
-// ============================================================
-// Helper: request landscape orientation on mobile
-// ============================================================
 async function requestLandscape() {
   const isMobile = window.matchMedia("(max-width: 900px), (pointer: coarse)").matches;
   if (!isMobile) return;
@@ -37,7 +33,6 @@ async function requestLandscape() {
     await (screen.orientation as unknown as { lock?: (o: string) => Promise<void> })
       ?.lock?.("landscape");
   } catch {
-    /* user agent may reject; ignore */
   }
 }
 
@@ -45,14 +40,9 @@ function unlockOrientation() {
   try {
     (screen.orientation as unknown as { unlock?: () => void })?.unlock?.();
   } catch {
-    /* noop */
   }
 }
 
-// ============================================================
-// Instagram Embed — uses the official embed.js approach
-// (same as how YouTube uses its own iframe API)
-// ============================================================
 function InstagramEmbed({ url, title }: { url: string; title: string }) {
   const containerRef = useRef<HTMLDivElement>(null);
   const [loaded, setLoaded] = useState(false);
@@ -63,7 +53,6 @@ function InstagramEmbed({ url, title }: { url: string; title: string }) {
 
       containerRef.current.innerHTML = "";
 
-      // Build the blockquote markup Instagram's embed.js expects
       const blockquote = document.createElement("blockquote");
       blockquote.className = "instagram-media";
       blockquote.setAttribute("data-instgrm-permalink", url);
@@ -72,14 +61,12 @@ function InstagramEmbed({ url, title }: { url: string; title: string }) {
         "background:#FFF;border:0;border-radius:3px;box-shadow:0 0 1px 0 rgba(0,0,0,0.5),0 1px 10px 0 rgba(0,0,0,0.15);margin:0 auto;max-width:540px;width:100%;";
       containerRef.current.appendChild(blockquote);
 
-      // If script already loaded, just reprocess
       if (window.instgrm) {
         window.instgrm.Embeds.process();
         setLoaded(true);
         return;
       }
 
-      // Load embed.js once
       const existingScript = document.getElementById("instagram-embed-script");
       if (!existingScript) {
         const script = document.createElement("script");
@@ -93,7 +80,6 @@ function InstagramEmbed({ url, title }: { url: string; title: string }) {
         };
         document.body.appendChild(script);
       } else {
-        // Script tag exists but may still be loading — poll until ready
         const retry = setInterval(() => {
           if (window.instgrm) {
             window.instgrm.Embeds.process();
@@ -127,15 +113,11 @@ function InstagramEmbed({ url, title }: { url: string; title: string }) {
   );
 }
 
-// ============================================================
-// YouTube Player wrapper with fullscreen + auto-landscape
-// ============================================================
 function YouTubePlayer({ video, autoPlay }: { video: VideoItem; autoPlay: boolean }) {
   const wrapperRef = useRef<HTMLDivElement>(null);
   const [isFullscreen, setIsFullscreen] = useState(false);
   const id = getYouTubeId(video.src);
 
-  // Track fullscreen state changes (for button icon & orientation restore)
   useEffect(() => {
     const onFsChange = () => {
       const inFs = document.fullscreenElement === wrapperRef.current;
@@ -203,7 +185,6 @@ interface Props {
 const SPEEDS = [0.5, 0.75, 1, 1.25, 1.5, 2];
 
 const VideoPlayer = ({ video, autoPlay = true }: Props) => {
-  // For YouTube videos we just embed YouTube's own player (already perfect UX).
   if (video.type === "youtube") {
     return <YouTubePlayer video={video} autoPlay={autoPlay} />;
   }
@@ -215,9 +196,6 @@ const VideoPlayer = ({ video, autoPlay = true }: Props) => {
   return <LocalPlayer video={video} autoPlay={autoPlay} />;
 };
 
-// ============================================================
-// Custom HTML5 player (YouTube-like UI) — for "local" videos
-// ============================================================
 function LocalPlayer({ video, autoPlay }: Props) {
   const wrapperRef = useRef<HTMLDivElement>(null);
   const videoRef = useRef<HTMLVideoElement>(null);
@@ -248,7 +226,6 @@ function LocalPlayer({ video, autoPlay }: Props) {
     scheduleHide();
   }, [scheduleHide]);
 
-  // Sync events
   useEffect(() => {
     const v = videoRef.current;
     if (!v) return;
@@ -286,7 +263,6 @@ function LocalPlayer({ video, autoPlay }: Props) {
     };
   }, [scheduleHide]);
 
-  // Fullscreen sync + orientation restore on exit
   useEffect(() => {
     const onFs = () => {
       const inFs = document.fullscreenElement === wrapperRef.current;
@@ -299,7 +275,6 @@ function LocalPlayer({ video, autoPlay }: Props) {
     return () => document.removeEventListener("fullscreenchange", onFs);
   }, []);
 
-  // Keyboard
   useEffect(() => {
     const onKey = (e: KeyboardEvent) => {
       const v = videoRef.current;
@@ -314,7 +289,6 @@ function LocalPlayer({ video, autoPlay }: Props) {
     };
     window.addEventListener("keydown", onKey);
     return () => window.removeEventListener("keydown", onKey);
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   const togglePlay = () => {
@@ -338,7 +312,6 @@ function LocalPlayer({ video, autoPlay }: Props) {
       await document.exitFullscreen();
     } else {
       await wrapperRef.current.requestFullscreen();
-      // Auto-landscape on mobile — always force landscape for better viewing
       await requestLandscape();
     }
   };

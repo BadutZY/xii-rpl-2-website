@@ -1,6 +1,3 @@
-// =============================================================
-// DATA VIDEO — XI RPL 2
-// -------------------------------------------------------------
 // Cara menambah KATEGORI baru:
 //   1. Tambahkan entry baru di array `videoCategories`.
 //   2. Pakai `id` unik (huruf kecil, tanpa spasi).
@@ -23,7 +20,6 @@
 //                     lalu isi: thumbnail: "/videos/thumbs/intro.jpg"
 //   5. `duration` TIDAK perlu diisi — akan dihitung otomatis
 //        oleh player saat metadata video dimuat.
-// =============================================================
 
 export type VideoType = "youtube" | "local" | "instagram";
 
@@ -43,7 +39,6 @@ export interface VideoItem {
   thumbnail?: string;
 }
 
-// ---------- KATEGORI / FOLDER VIDEO ----------
 export const videoCategories: VideoCategory[] = [
   {
     id: "vlogindo",
@@ -52,7 +47,6 @@ export const videoCategories: VideoCategory[] = [
   }
 ];
 
-// ---------- DAFTAR VIDEO ----------
 export const videos: VideoItem[] = [
   {
     id: "v-1",
@@ -86,10 +80,8 @@ export const videos: VideoItem[] = [
 
 ];
 
-// ---------- HELPER ----------
 export const getYouTubeId = (url: string): string | null => {
   if (!url) return null;
-  // Already an ID
   if (/^[a-zA-Z0-9_-]{11}$/.test(url)) return url;
   try {
     const u = new URL(url);
@@ -101,7 +93,6 @@ export const getYouTubeId = (url: string): string | null => {
     const idx = parts.findIndex((p) => ["embed", "shorts", "v"].includes(p));
     if (idx !== -1 && parts[idx + 1]) return parts[idx + 1];
   } catch {
-    /* ignore */
   }
   return null;
 };
@@ -112,7 +103,6 @@ export const getYouTubeThumbnail = (url: string): string | null => {
 };
 
 export const getInstagramEmbedUrl = (url: string): string => {
-  // Normalize trailing slash, then append /embed
   const clean = url.replace(/\/+$/, "");
   return `${clean}/embed`;
 };

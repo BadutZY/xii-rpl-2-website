@@ -11,7 +11,6 @@ interface Props {
 }
 
 const VideoModal = ({ video, onClose }: Props) => {
-  // Lock background scroll while open — restore previous value on close
   useEffect(() => {
     if (!video) return;
     const { overflow, paddingRight } = document.body.style;
@@ -35,7 +34,6 @@ const VideoModal = ({ video, onClose }: Props) => {
           exit={{ opacity: 0 }}
           transition={{ duration: 0.18 }}
           className="fixed inset-0 z-[100] flex items-center justify-center p-2 sm:p-4 md:p-6 bg-black/85 backdrop-blur-sm"
-          // Intentionally NO onClick handler — modal can only be closed via the X button
           role="dialog"
           aria-modal="true"
           aria-label={video.title}

@@ -101,7 +101,6 @@ export const piketSchedule: Record<string, PiketItem[]> = {
   ],
   selasa: [
     { fullName: "AYESHA NADYA AFSARIANA", nickname: "Ayesha" },
-    { fullName: "FATHUL MUBIN", nickname: "Fathul" },
     { fullName: "IBRAHIM NAUFHAL", nickname: "Ibra" },
     { fullName: "KLARA AYU YUSNIA", nickname: "Klara" },
     { fullName: "MARIO RAMDANI", nickname: "Mario" },
