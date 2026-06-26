@@ -14,6 +14,9 @@
 //        - Local    : ISI dengan path gambar custom milikmu, contoh:
 //                     taruh file di `public/videos/thumbs/intro.jpg`
 //                     lalu isi: thumbnail: "/videos/thumbs/intro.jpg"
+import kera1 from "@/assets/gallery/kera2.jpeg";
+import kera2 from "@/assets/gallery/kera6.jpeg";
+
 
 export type VideoType = "youtube" | "local" | "instagram";
 
@@ -50,6 +53,12 @@ export const videoCategories: VideoCategory[] = [
     id: "drama",
     title: "Drama Pentas Seni",
     description: "Pentas Seni Drama yang menampilkan bakat akting siswa-siswi XI RPL 2.",
+  },
+
+  {
+    id: "kera",
+    title: "Kebun Raya",
+    description: "siswa-siswi XI RPL 2 berkunjung ke Kebun Raya.",
   }
 ];
 
@@ -145,6 +154,33 @@ export const videos: VideoItem[] = [
     categoryId: "jepang",
     type: "youtube",
     src: "https://youtu.be/Hwuk7O4xgUQ?si=dt4fc3yfGASpo5vQ",
+  },
+
+  {
+    id: "v-13",
+    title: "Kebun Raya",
+    categoryId: "kera",
+    type: "local",
+    src: "public/kera/keravid1.mp4",
+    thumbnail: kera1,
+  },
+
+  {
+    id: "v-14",
+    title: "Kebun Raya",
+    categoryId: "kera",
+    type: "local",
+    src: "public/kera/keravid2.mp4",
+    thumbnail: kera1,
+  },
+
+  {
+    id: "v-15",
+    title: "Kebun Raya",
+    categoryId: "kera",
+    type: "local",
+    src: "public/kera/keravid3.mp4",
+    thumbnail: kera2,
   }
 
 

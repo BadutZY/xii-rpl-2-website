@@ -13,6 +13,11 @@ import petugas from "@/assets/gallery/petugas.jpeg";
 import drama1 from "@/assets/gallery/drama1.jpeg";
 import drama2 from "@/assets/gallery/drama2.jpeg";
 import drama3 from "@/assets/gallery/drama3.jpeg";
+import kera1 from "@/assets/gallery/kera2.jpeg";
+import kera2 from "@/assets/gallery/kera3.jpeg";
+import kera3 from "@/assets/gallery/kera4.jpeg";
+import kera4 from "@/assets/gallery/kera5.jpeg";
+import kera5 from "@/assets/gallery/kera6.jpeg";
 
 export interface GalleryImage {
   id: number;
@@ -36,6 +41,11 @@ export const galleryImages: GalleryImage[] = [
   { id: 14, src: drama1, title: " " },
   { id: 15, src: drama2, title: " " },
   { id: 16, src: drama3, title: " " },
+  { id: 17, src: kera1, title: " " },
+  { id: 18, src: kera2, title: " " },
+  { id: 19, src: kera3, title: " " },
+  { id: 20, src: kera4, title: " " },
+  { id: 21, src: kera5, title: " " },
 ];
 
 // Hanya 6 foto yang tampil di section preview homepage
