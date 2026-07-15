@@ -72,14 +72,14 @@ export default function LoadingScreen({ onComplete }: LoadingScreenProps) {
             flexDirection: "column",
             alignItems: "center",
             justifyContent: "center",
-            background: "oklch(0.205 0.04 264)",
+            background: "hsl(224, 24%, 8%)",
             overflow: "hidden",
           }}
         >
           {/* Radial glow */}
           <div style={{
             position: "absolute", inset: 0, pointerEvents: "none",
-            background: "radial-gradient(ellipse 70% 55% at 50% 50%, hsla(263, 70%, 50%, 0.13) 0%, transparent 70%)",
+            background: "radial-gradient(ellipse 70% 55% at 50% 50%, hsla(226, 68%, 50%, 0.13) 0%, transparent 70%)",
           }} />
 
           {/* Partikel */}
@@ -94,10 +94,10 @@ export default function LoadingScreen({ onComplete }: LoadingScreenProps) {
                 width: p.size, height: p.size,
                 borderRadius: "50%", pointerEvents: "none",
                 background: p.id % 3 === 0
-                  ? "hsl(263, 70%, 65%)"
+                  ? "hsl(226, 68%, 65%)"
                   : p.id % 3 === 1
-                  ? "hsl(160, 84%, 55%)"
-                  : "hsl(263, 70%, 45%)",
+                  ? "hsl(45, 90%, 55%)"
+                  : "hsl(226, 68%, 45%)",
               }}
             />
           ))}
@@ -108,7 +108,7 @@ export default function LoadingScreen({ onComplete }: LoadingScreenProps) {
             transition={{ duration: 0.9, delay: 0.1, ease: "easeOut" }}
             style={{
               position: "absolute", top: 0, left: 0, right: 0, height: 3, transformOrigin: "left",
-              background: "linear-gradient(90deg, transparent, hsl(263, 70%, 55%), hsl(160, 84%, 45%), transparent)",
+              background: "linear-gradient(90deg, transparent, hsl(226, 68%, 55%), hsl(45, 90%, 45%), transparent)",
             }}
           />
 
@@ -132,7 +132,7 @@ export default function LoadingScreen({ onComplete }: LoadingScreenProps) {
                 style={{
                   position: "absolute", width: 164, height: 164, borderRadius: "50%",
                   border: "1.5px solid transparent",
-                  background: "linear-gradient(oklch(0.205 0.04 264), oklch(0.205 0.04 264)) padding-box, linear-gradient(135deg, hsl(263, 70%, 55%), hsl(160, 84%, 45%), hsl(263, 70%, 55%)) border-box",
+                  background: "linear-gradient(hsl(224, 24%, 8%), hsl(224, 24%, 8%)) padding-box, linear-gradient(135deg, hsl(226, 68%, 55%), hsl(45, 90%, 45%), hsl(226, 68%, 55%)) border-box",
                 }}
               />
               {/* Ring dalam berlawanan */}
@@ -142,20 +142,20 @@ export default function LoadingScreen({ onComplete }: LoadingScreenProps) {
                 style={{
                   position: "absolute", width: 142, height: 142, borderRadius: "50%",
                   border: "1px solid transparent",
-                  background: "linear-gradient(oklch(0.205 0.04 264), oklch(0.205 0.04 264)) padding-box, linear-gradient(225deg, hsla(263, 70%, 55%, 0.4), hsla(160, 84%, 45%, 0.4), hsla(263, 70%, 55%, 0.4)) border-box",
+                  background: "linear-gradient(hsl(224, 24%, 8%), hsl(224, 24%, 8%)) padding-box, linear-gradient(225deg, hsla(226, 68%, 55%, 0.4), hsla(45, 90%, 45%, 0.4), hsla(226, 68%, 55%, 0.4)) border-box",
                 }}
               />
 
               {/* img langsung, objectFit contain, ukuran fix */}
               <img
                 src={logoSrc}
-                alt="Logo XI RPL 2"
+                alt="Logo XII RPL 2"
                 width={110}
                 height={110}
                 style={{
                   objectFit: "contain",
                   display: "block",
-                  filter: "drop-shadow(0 0 16px hsla(263, 70%, 50%, 0.5))",
+                  filter: "drop-shadow(0 0 16px hsla(226, 68%, 50%, 0.5))",
                 }}
               />
             </motion.div>
@@ -169,22 +169,22 @@ export default function LoadingScreen({ onComplete }: LoadingScreenProps) {
               <h1 style={{
                 fontFamily: "'Space Grotesk', sans-serif",
                 fontSize: "clamp(20px, 5vw, 28px)", fontWeight: 700,
-                margin: 0, lineHeight: 1.2, color: "oklch(0.984 0.003 247.858)",
+                margin: 0, lineHeight: 1.2, color: "hsl(210, 24%, 96%)",
               }}>
                 SMK INFOKOM
               </h1>
               <p style={{
                 margin: "6px 0 0", fontSize: "clamp(13px, 3vw, 16px)",
                 fontFamily: "'Space Grotesk', sans-serif", fontWeight: 600,
-                background: "linear-gradient(135deg, hsl(263, 70%, 70%), hsl(160, 84%, 55%))",
+                background: "linear-gradient(135deg, hsl(226, 68%, 70%), hsl(45, 90%, 55%))",
                 WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent",
                 backgroundClip: "text", letterSpacing: "0.05em",
               }}>
-                XI RPL 2
+                XII RPL 2
               </p>
               <p style={{
                 margin: "8px 0 0", fontSize: "clamp(11px, 2.5vw, 13px)",
-                color: "oklch(0.72 0.02 256)", fontFamily: "'Inter', sans-serif",
+                color: "hsl(218, 10%, 68%)", fontFamily: "'Inter', sans-serif",
                 letterSpacing: "0.04em",
               }}>
                 Rekayasa Perangkat Lunak
@@ -199,11 +199,11 @@ export default function LoadingScreen({ onComplete }: LoadingScreenProps) {
             >
               <div style={{
                 width: "100%", height: 4, borderRadius: 99,
-                background: "oklch(0.28 0.03 260)", overflow: "hidden", position: "relative",
+                background: "hsl(224, 16%, 20%)", overflow: "hidden", position: "relative",
               }}>
                 <div style={{
                   height: "100%", borderRadius: 99,
-                  background: "linear-gradient(90deg, hsl(263, 70%, 55%), hsl(160, 84%, 45%))",
+                  background: "linear-gradient(90deg, hsl(226, 68%, 55%), hsl(45, 90%, 45%))",
                   width: `${progress}%`, transition: "width 0.25s ease-out",
                 }} />
                 <motion.div
@@ -217,14 +217,14 @@ export default function LoadingScreen({ onComplete }: LoadingScreenProps) {
               </div>
               <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginTop: 9 }}>
                 <span style={{
-                  fontSize: 11, color: "oklch(0.72 0.02 256)", fontFamily: "'Inter', sans-serif",
+                  fontSize: 11, color: "hsl(218, 10%, 68%)", fontFamily: "'Inter', sans-serif",
                   letterSpacing: "0.08em", textTransform: "uppercase",
                 }}>
                   Memuat...
                 </span>
                 <span style={{
                   fontSize: 12, fontWeight: 600, fontFamily: "'Inter', sans-serif",
-                  background: "linear-gradient(135deg, hsl(263, 70%, 70%), hsl(160, 84%, 55%))",
+                  background: "linear-gradient(135deg, hsl(226, 68%, 70%), hsl(45, 90%, 55%))",
                   WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent", backgroundClip: "text",
                 }}>
                   {progress}%
@@ -245,7 +245,7 @@ export default function LoadingScreen({ onComplete }: LoadingScreenProps) {
                   transition={{ duration: 1.2, repeat: Infinity, delay: i * 0.22, ease: "easeInOut" }}
                   style={{
                     width: 7, height: 7, borderRadius: "50%",
-                    background: i === 1 ? "hsl(160, 84%, 55%)" : "hsl(263, 70%, 65%)",
+                    background: i === 1 ? "hsl(45, 90%, 55%)" : "hsl(226, 68%, 65%)",
                   }}
                 />
               ))}
@@ -258,7 +258,7 @@ export default function LoadingScreen({ onComplete }: LoadingScreenProps) {
             transition={{ duration: 0.9, delay: 0.2, ease: "easeOut" }}
             style={{
               position: "absolute", bottom: 0, left: 0, right: 0, height: 3, transformOrigin: "right",
-              background: "linear-gradient(90deg, transparent, hsl(160, 84%, 45%), hsl(263, 70%, 55%), transparent)",
+              background: "linear-gradient(90deg, transparent, hsl(45, 90%, 45%), hsl(226, 68%, 55%), transparent)",
             }}
           />
 
@@ -276,10 +276,10 @@ export default function LoadingScreen({ onComplete }: LoadingScreenProps) {
               style={{
                 position: "absolute", width: 20, height: 20,
                 top: pos.top, right: (pos as any).right, bottom: (pos as any).bottom, left: (pos as any).left,
-                borderTop: pos.borderTop ? "2px solid hsla(263, 70%, 55%, 0.45)" : undefined,
-                borderBottom: pos.borderBottom ? "2px solid hsla(160, 84%, 45%, 0.45)" : undefined,
-                borderLeft: pos.borderLeft ? "2px solid hsla(263, 70%, 55%, 0.45)" : undefined,
-                borderRight: pos.borderRight ? "2px solid hsla(160, 84%, 45, 0.45)" : undefined,
+                borderTop: pos.borderTop ? "2px solid hsla(226, 68%, 55%, 0.45)" : undefined,
+                borderBottom: pos.borderBottom ? "2px solid hsla(45, 90%, 45%, 0.45)" : undefined,
+                borderLeft: pos.borderLeft ? "2px solid hsla(226, 68%, 55%, 0.45)" : undefined,
+                borderRight: pos.borderRight ? "2px solid hsla(45, 90%, 45, 0.45)" : undefined,
               }}
             />
           ))}

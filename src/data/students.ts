@@ -29,12 +29,12 @@ export const studentsData: Student[] = [
   },
   {
     id: 4, no: "4", name: "Ayesha", fullName: "AYESHA NADYA AFSARIANA",
-    age: 17, birthdate: "4 Juni 2009", position: "Seksi Kebersihan", kreditPoin: "97",
+    age: 17, birthdate: "4 Juni 2009", position: "Wakil Ketua Kelas", kreditPoin: "97",
     socials: { instagram: "https://www.instagram.com/fleurbunns_dysha/" }
   },
   {
     id: 5, no: "5", name: "Chantika", fullName: "CHANTIKA OCTAVIANY",
-    age: 18, birthdate: "11 Oktober 2008", position: "-", kreditPoin: "90",
+    age: 18, birthdate: "11 Oktober 2008", position: "Sekretaris", kreditPoin: "90",
     socials: { instagram: "https://www.instagram.com/chikaaiu/" }
   },
   {
@@ -68,7 +68,7 @@ export const studentsData: Student[] = [
     socials: { instagram: "https://www.instagram.com/cad_affa/" }
   },
   {
-    id: 12, no: "13", name: "Kafka", fullName: "KAFKA NAVIZZA AGUSTIN",
+    id: 12, no: "13", name: "Ocin", fullName: "KAFKA NAVIZZA AGUSTIN",
     age: 18, birthdate: "18 Agustus 2008", position: "-", kreditPoin: "95",
     socials: { instagram: "https://www.instagram.com/kafkaanvzza/" }
   },
@@ -79,8 +79,8 @@ export const studentsData: Student[] = [
   },
   {
     id: 14, no: "15", name: "Mario", fullName: "MARIO RAMDANI",
-    age: 18, birthdate: "24 Maret 2008", position: "Ketua Kelas", kreditPoin: "91",
-    socials: { instagram: "@swimmingfoxx_", github: "Marrwertz", game: "https://box-siege.vercel.app" }
+    age: 18, birthdate: "24 Maret 2008", position: "-", kreditPoin: "91",
+    socials: { instagram: "@swimmingfoxx_", github: "Marrwertz", game: "https://boxsiege.vercel.app" }
   },
   {
     id: 15, no: "16", name: "Fathur", fullName: "MOCHAMAD FATHURAHMAN",
@@ -99,7 +99,8 @@ export const studentsData: Student[] = [
   },
   {
     id: 18, no: "19", name: "Fatih", fullName: "MUHAMMAD AL FATIH HAIDAR",
-    age: 18, birthdate: "22 Juni 2008", position: "Wakil Ketua Kelas", kreditPoin: "97",
+    age: 18, birthdate: "22 Juni 2008", position: "Ketua Kelas", kreditPoin: "97",
+    photo: "/photos/paqih.jpg",
     socials: { instagram: "https://www.instagram.com/gevithia/" }
   },
   {
@@ -146,8 +147,8 @@ export const studentsData: Student[] = [
   {
     id: 27, no: "29", name: "Rizky", fullName: "RIZKY MAULANA PUTRA",
     age: 17, birthdate: "06 Maret 2009", position: "Developer", kreditPoin: "100",
-    photo: "/photos/rizky.jpg",
-    socials: { instagram: "@rzky.mp_36", twitter: "@BadutZYY_", youtube: "@badutzy", github: "BadutZY", website: "badutzy.vercel.app", game: "https://box-siege.vercel.app" }
+    photo: "/photos/rizky.jfif",
+    socials: { instagram: "@rzky.mp_36", twitter: "@BadutZYY_", youtube: "@badutzy", github: "BadutZY", website: "badutzy.vercel.app", game: "https://boxsiege.vercel.app" }
   },
   {
     id: 28, no: "30", name: "Sandi", fullName: "SANDI SANJAYA",

@@ -1,5 +1,5 @@
 import { useMemo } from "react";
-import { createFileRoute, Link, useNavigate } from "@tanstack/react-router";
+import { Link, useNavigate, useParams } from "react-router-dom";
 import { motion } from "framer-motion";
 import { ArrowLeft, Play, Youtube, Instagram, FileVideo, Folder } from "lucide-react";
 import Navbar from "@/components/Navbar";
@@ -13,35 +13,17 @@ import {
   type VideoItem,
 } from "@/data/videos";
 import { useVideoDuration } from "@/hooks/useVideoDuration";
+import { useDocumentMeta } from "@/hooks/useDocumentMeta";
 
-export const Route = createFileRoute("/videos/$id")({
-  component: WatchPage,
-  head: ({ params }) => {
-    const v = videos.find((x) => x.id === params.id);
-    return {
-      meta: [
-        { title: v ? `${v.title} — XI RPL 2` : "Video — XI RPL 2" },
-        { name: "description", content: v?.description ?? "Tonton video XI RPL 2." },
-      ],
-    };
-  },
-  notFoundComponent: () => (
-    <div className="min-h-screen">
-      <Navbar />
-      <div className="container mx-auto px-4 py-24 text-center">
-        <h1 className="text-3xl font-bold gradient-text">Video tidak ditemukan</h1>
-        <Link to="/videos" className="inline-block mt-6 px-5 py-2.5 rounded-lg bg-primary text-primary-foreground">
-          Kembali ke daftar video
-        </Link>
-      </div>
-    </div>
-  ),
-});
-
-function WatchPage() {
-  const { id } = Route.useParams();
+export default function WatchPage() {
+  const { id } = useParams<{ id: string }>();
   const navigate = useNavigate();
   const video = videos.find((v) => v.id === id);
+
+  useDocumentMeta({
+    title: video ? `${video.title} - XII RPL 2` : "Video - XII RPL 2",
+    description: video?.description ?? "Tonton video XII RPL 2.",
+  });
 
   const category = useMemo(
     () => (video ? videoCategories.find((c) => c.id === video.categoryId) : null),
@@ -81,7 +63,7 @@ function WatchPage() {
 
       <main className="container mx-auto px-3 sm:px-4 py-6 lg:py-8">
         <button
-          onClick={() => navigate({ to: "/videos" })}
+          onClick={() => navigate("/videos")}
           className="inline-flex items-center gap-1.5 text-sm text-muted-foreground hover:text-secondary transition mb-4"
         >
           <ArrowLeft size={16} /> Kembali ke daftar
@@ -111,7 +93,7 @@ function WatchPage() {
                   style={{
                     background: "var(--time-badge-bg)",
                     border: "1px solid var(--time-badge-border)",
-                    color: "hsl(263, 80%, 80%)",
+                    color: "hsl(226, 75%, 80%)",
                   }}
                 >
                   <TypeIcon size={13} /> {typeLabel}
@@ -123,7 +105,7 @@ function WatchPage() {
                     style={{
                       background: "var(--subject-badge-bg)",
                       border: "1px solid var(--subject-badge-border)",
-                      color: "hsl(160, 84%, 70%)",
+                      color: "hsl(45, 85%, 70%)",
                     }}
                   >
                     <Folder size={13} /> {category.title}
@@ -174,9 +156,8 @@ function SidebarItem({ video }: { video: VideoItem }) {
 
   return (
     <Link
-      to="/videos/$id"
-      params={{ id: video.id }}
-      className="group flex gap-3 rounded-xl p-2 hover:bg-white/[0.04] transition"
+      to={`/videos/${video.id}`}
+      className="group flex gap-3 rounded-xl p-2 hover:bg-[var(--surface-2)] transition"
     >
       <div className="relative w-40 sm:w-44 aspect-video flex-shrink-0 rounded-lg overflow-hidden bg-black">
         {thumb ? (
@@ -187,8 +168,8 @@ function SidebarItem({ video }: { video: VideoItem }) {
             className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
           />
         ) : (
-          <div className="absolute inset-0 flex items-center justify-center bg-gradient-to-br from-primary/20 to-secondary/20">
-            <TypeIcon className="w-7 h-7 text-white/60" />
+          <div className="absolute inset-0 flex items-center justify-center" style={{ background: "var(--surface-2)" }}>
+            <TypeIcon className="w-7 h-7 text-muted-foreground" />
           </div>
         )}
         <div className="absolute inset-0 bg-black/0 group-hover:bg-black/30 transition" />

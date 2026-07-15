@@ -1,22 +1,12 @@
 import { defineConfig } from "vite";
 import react from "@vitejs/plugin-react";
 import tailwindcss from "@tailwindcss/vite";
-import { TanStackRouterVite } from "@tanstack/router-plugin/vite";
 import tsconfigPaths from "vite-tsconfig-paths";
 
+// Standard Vite + React SPA config (index.html as the entry point).
 export default defineConfig({
-  plugins: [
-    TanStackRouterVite({ target: "react", autoCodeSplitting: true }),
-    react(),
-    tailwindcss(),
-    tsconfigPaths(),
-  ],
+  plugins: [tsconfigPaths(), react(), tailwindcss()],
   server: {
-    proxy: {
-      "/api": {
-        target: "https://rpl2.vercel.app",
-        changeOrigin: true,
-      },
-    },
+    host: true,
   },
 });

@@ -93,14 +93,14 @@ const TeacherModal = ({ teacher, onClose }: Props) => {
                     className="w-full h-full object-cover object-top"
                   />
                 ) : (
-                  <GraduationCap size={56} className="text-orange-300/70" />
+                  <GraduationCap size={56} className="text-amber-300/70" />
                 )}
               </div>
 
               <h3 className="text-xl font-bold font-heading gradient-text-teacher mb-1">
                 {teacher.fullName}
               </h3>
-              <p className="text-orange-300 text-sm mb-5">{teacher.role}</p>
+              <p className="text-amber-300 text-sm mb-5">{teacher.role}</p>
 
               <div className="text-sm text-muted-foreground inline-block text-left">
                 <table

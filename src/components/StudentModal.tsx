@@ -83,7 +83,7 @@ const StudentModal = ({ student, onClose }: Props) => {
                     <tr><td className="pr-2 whitespace-nowrap">Nomor Absen</td><td className="px-2">:</td><td>{student.no}</td></tr>
                     <tr><td className="pr-2 whitespace-nowrap">Umur</td><td className="px-2">:</td><td>{student.age > 0 ? `${student.age} tahun` : "-"}</td></tr>
                     <tr><td className="pr-2 whitespace-nowrap">Tanggal Lahir</td><td className="px-2">:</td><td>{student.birthdate}</td></tr>
-                    <tr><td className="pr-2 whitespace-nowrap">Kredit Poin</td><td className="px-2">:</td><td>{student.kreditPoin}</td></tr>
+                    
                   </tbody>
                 </table>
               </div>

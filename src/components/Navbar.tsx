@@ -1,6 +1,7 @@
 import { useState, useEffect, type MouseEvent } from "react";
-import { Link, useLocation } from "@tanstack/react-router";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { Menu, X } from "lucide-react";
+import ThemeToggle from "@/components/ThemeToggle";
 
 const navLinks = [
   { to: "/", label: "Home" },
@@ -42,6 +43,19 @@ const Navbar = () => {
   const [open, setOpen] = useState(false);
   const [activeHash, setActiveHash] = useState<string>("home");
   const location = useLocation();
+  const navigate = useNavigate();
+
+  const goHome = () => {
+    setActiveHash("home");
+    setOpen(false);
+    if (location.pathname !== "/") {
+      navigate("/");
+    }
+    // Scroll to top on next tick so DOM has updated
+    requestAnimationFrame(() => {
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    });
+  };
 
   useEffect(() => {
     setOpen(false);
@@ -106,9 +120,7 @@ const Navbar = () => {
     if (!("hash" in link)) {
       if (link.to === "/") {
         event.preventDefault();
-        setActiveHash("home");
-        window.history.pushState(null, "", "/");
-        window.scrollTo({ top: 0, behavior: "smooth" });
+        goHome();
       } else {
         setActiveHash("");
       }
@@ -116,6 +128,7 @@ const Navbar = () => {
     }
 
     if (location.pathname !== "/") {
+      // Let react-router navigate to "/#hash"; scroll handled after landing on home
       setActiveHash(link.hash);
       return;
     }
@@ -128,42 +141,38 @@ const Navbar = () => {
 
   return (
     <header className="nav-header sticky top-0 z-50">
-      <nav className="container mx-auto px-6 py-4 relative">
-        <div className="flex items-center justify-between">
+      <nav className="container-page relative py-3.5">
+        <div className="flex items-center justify-between gap-4">
 
           {/* Logo + Nama */}
           <button
-            onClick={() => {
-              setActiveHash("home");
-              window.history.pushState(null, "", "/");
-              window.scrollTo({ top: 0, behavior: "smooth" });
-            }}
-            className="flex items-center gap-2 focus:outline-none cursor-pointer"
+            type="button"
+            onClick={goHome}
+            className="flex items-center gap-2.5 focus:outline-none cursor-pointer group"
             aria-label="Kembali ke Home"
           >
             <img
               src="/logo.png"
-              alt="Logo XI RPL 2"
-              className="h-8 w-8 rounded-full object-cover"
+              alt="Logo XII RPL 2"
+              className="h-8 w-8 rounded-lg object-cover ring-1 ring-border"
             />
-            <span className="text-2xl font-bold gradient-text font-heading">
-              XI RPL 2
+            <span className="font-heading text-[15px] font-semibold tracking-tight text-foreground">
+              XII<span className="text-muted-foreground"> RPL 2</span>
             </span>
           </button>
 
           {/* Desktop */}
-          <div className="hidden md:flex space-x-8">
+          <div className="hidden md:flex items-center gap-1">
             {navLinks.map((link) => {
               const linkActive = isLinkActive(link);
               return (
                 <Link
                   key={link.label}
-                  to={link.to}
-                  hash={"hash" in link ? link.hash : undefined}
-                  className={`font-medium transition-colors text-sm tracking-wide uppercase cursor-pointer ${
+                  to={"hash" in link && link.hash ? `${link.to}#${link.hash}` : link.to}
+                  className={`relative px-3 py-1.5 rounded-full text-[13px] font-medium transition-colors cursor-pointer ${
                     linkActive
-                      ? "text-secondary"
-                      : "text-muted-foreground hover:text-secondary"
+                      ? "text-foreground bg-surface"
+                      : "text-muted-foreground hover:text-foreground"
                   }`}
                   onClick={(event) => handleLinkClick(link, event)}
                 >
@@ -173,17 +182,23 @@ const Navbar = () => {
             })}
           </div>
 
-          {/* Hamburger */}
-          <button
-            onClick={() => setOpen((v) => !v)}
-            className="md:hidden p-2 rounded-lg filter-btn"
-            aria-label="Toggle menu"
-            aria-expanded={open}
-          >
-            <span className={`hamburger-icon inline-flex ${open ? "open" : ""}`}>
-              {open ? <X size={24} /> : <Menu size={24} />}
-            </span>
-          </button>
+
+          {/* Right side: theme toggle + hamburger */}
+          <div className="flex items-center gap-2">
+            <ThemeToggle />
+
+            {/* Hamburger */}
+            <button
+              onClick={() => setOpen((v) => !v)}
+              className="md:hidden p-2 rounded-lg filter-btn"
+              aria-label="Toggle menu"
+              aria-expanded={open}
+            >
+              <span className={`hamburger-icon inline-flex ${open ? "open" : ""}`}>
+                {open ? <X size={24} /> : <Menu size={24} />}
+              </span>
+            </button>
+          </div>
         </div>
 
         {/* Mobile dropdown */}
@@ -194,8 +209,7 @@ const Navbar = () => {
               return (
                 <Link
                   key={link.label}
-                  to={link.to}
-                  hash={"hash" in link ? link.hash : undefined}
+                  to={"hash" in link && link.hash ? `${link.to}#${link.hash}` : link.to}
                   onClick={(event) => handleLinkClick(link, event)}
                   className={`mobile-nav-link ${linkActive ? "is-active" : ""}`}
                 >
