@@ -11,6 +11,7 @@
 [![Type](https://img.shields.io/badge/Type-School%20Project-FF6B35?style=for-the-badge)]()
 [![Built With](https://img.shields.io/badge/Built%20With-React-61DAFB?style=for-the-badge&logo=react&logoColor=white)]()
 [![Built With](https://img.shields.io/badge/Styled%20With-Tailwind%20CSS-06B6D4?style=for-the-badge&logo=tailwindcss&logoColor=white)]()
+[![Package Manager](https://img.shields.io/badge/Package%20Manager-pnpm-F69220?style=for-the-badge&logo=pnpm&logoColor=white)]()
 
 [About](#about) • [Features](#core-features) • [Pages](#pages) • [Technology](#technology) • [Getting Started](#getting-started)
 
@@ -69,10 +70,12 @@ Aplikasi ini terbagi ke dalam enam halaman utama, masing-masing dengan fokus inf
 | Routing | React Router |
 | Animasi | Framer Motion |
 | Formulir & Validasi | React Hook Form, Zod |
-| Package Manager | Bun |
+| Package Manager | pnpm |
 | Hosting & Deployment | Vercel |
 
 ---
+
+</div>
 
 ## Project Structure
 
@@ -101,7 +104,7 @@ xii-rpl-2/
 
 ## Instalasi
 
-Prasyarat: [Node.js](https://nodejs.org/) versi 18 ke atas dan [Bun](https://bun.sh/) sebagai package manager yang direkomendasikan.
+Prasyarat: [Node.js](https://nodejs.org/) versi 18 ke atas dan [pnpm](https://pnpm.io/) sebagai package manager yang digunakan pada proyek ini.
 
 1. Klon repositori ini.
 
@@ -113,26 +116,28 @@ Prasyarat: [Node.js](https://nodejs.org/) versi 18 ke atas dan [Bun](https://bun
 2. Pasang seluruh dependensi.
 
    ```bash
-   bun install
+   pnpm install
    ```
 
 3. Jalankan server pengembangan.
 
    ```bash
-   bun dev
+   pnpm dev
    ```
 
    Aplikasi akan berjalan pada `http://localhost:5173`.
+
+<div align="center">
 
 ### Skrip yang Tersedia
 
 | Perintah | Deskripsi |
 |---|---|
-| `bun dev` | Menjalankan aplikasi dalam mode pengembangan dengan hot reload |
-| `bun run build` | Membangun aplikasi untuk lingkungan produksi |
-| `bun run preview` | Menjalankan pratinjau lokal dari hasil build produksi |
-| `bun run lint` | Memeriksa kualitas dan konsistensi kode menggunakan ESLint |
-| `bun run format` | Merapikan format seluruh berkas kode menggunakan Prettier |
+| `pnpm dev` | Menjalankan aplikasi dalam mode pengembangan dengan hot reload |
+| `pnpm build` | Membangun aplikasi untuk lingkungan produksi |
+| `pnpm preview` | Menjalankan pratinjau lokal dari hasil build produksi |
+| `pnpm lint` | Memeriksa kualitas dan konsistensi kode menggunakan ESLint |
+| `pnpm format` | Merapikan format seluruh berkas kode menggunakan Prettier |
 
 ---
 
