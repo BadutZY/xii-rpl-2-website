@@ -1,203 +1,149 @@
+<div align="center">
+
+<img src="public/logo.png" height="140">
+
 # XII RPL 2 - SMK INFOKOM
 
-Pusat informasi digital untuk kelas XII RPL 2 SMK INFOKOM. Aplikasi web ini menyajikan profil murid dan wali kelas, jadwal pelajaran serta piket, galeri dokumentasi kegiatan, dan arsip video kelas dalam satu tampilan yang bersih, modern, dan responsif.
+**Pusat Informasi Digital Kelas XII RPL 2, SMK INFOKOM**
 
-## Daftar Isi
+[![Status](https://img.shields.io/badge/Status-Active%20Development-brightgreen?style=for-the-badge)]()
+[![Platform](https://img.shields.io/badge/Platform-Web-0078D6?style=for-the-badge)]()
+[![Type](https://img.shields.io/badge/Type-School%20Project-FF6B35?style=for-the-badge)]()
+[![Built With](https://img.shields.io/badge/Built%20With-React-61DAFB?style=for-the-badge&logo=react&logoColor=white)]()
+[![Built With](https://img.shields.io/badge/Styled%20With-Tailwind%20CSS-06B6D4?style=for-the-badge&logo=tailwindcss&logoColor=white)]()
 
-- [Tentang Proyek](#tentang-proyek)
-- [Fitur](#fitur)
-- [Teknologi yang Digunakan](#teknologi-yang-digunakan)
-- [Struktur Proyek](#struktur-proyek)
-- [Prasyarat](#prasyarat)
-- [Instalasi](#instalasi)
-- [Menjalankan Proyek](#menjalankan-proyek)
-- [Skrip yang Tersedia](#skrip-yang-tersedia)
-- [Build dan Deployment](#build-dan-deployment)
-- [Konvensi Kode](#konvensi-kode)
-- [Kontribusi](#kontribusi)
-- [Lisensi](#lisensi)
-- [Kontak](#kontak)
+[About](#about) • [Features](#core-features) • [Pages](#pages) • [Technology](#technology) • [Getting Started](#getting-started)
 
-## Tentang Proyek
+---
 
-Proyek ini dibangun sebagai media informasi resmi kelas XII RPL 2 di SMK INFOKOM. Tujuannya adalah menghadirkan satu tempat terpusat bagi murid, wali kelas, maupun pihak lain untuk mengakses data kelas secara cepat dan rapi, mulai dari profil anggota kelas, jadwal harian, hingga dokumentasi visual kegiatan sehari-hari.
+## About
 
-Aplikasi dibangun sebagai Single Page Application (SPA) menggunakan React dan Vite, dengan antarmuka yang mengutamakan kecepatan, aksesibilitas, dan pengalaman pengguna yang konsisten di berbagai perangkat.
+XII RPL 2 adalah platform web yang dibangun untuk menjadi pusat informasi kelas XII RPL 2 di SMK INFOKOM. Aplikasi ini menghimpun profil murid dan wali kelas, jadwal pelajaran dan piket, dokumentasi kegiatan, serta arsip video kelas ke dalam satu tampilan yang bersih, modern, dan mudah diakses.
 
-## Fitur
+Proyek ini dikembangkan sebagai media informasi resmi kelas, dengan tujuan memberikan akses cepat dan rapi bagi murid, wali kelas, maupun pihak lain yang ingin mengenal lebih dekat kelas XII RPL 2.
 
-- **Beranda**: Ringkasan informasi kelas, statistik jumlah murid dan wali kelas, serta gambaran mata pelajaran produktif yang dipelajari.
-- **Anggota Kelas**: Direktori murid dan wali kelas lengkap dengan foto, tautan sosial media, dan detail lain. Mendukung pencarian, filter berdasarkan jabatan, serta mode tampilan grid dan list.
-- **Jadwal**: Jadwal pelajaran dan jadwal piket harian yang dapat difilter per hari, lengkap dengan indikator hari aktif berjalan.
-- **Galeri**: Dokumentasi kegiatan kelas dalam dua mode tampilan, yaitu grid rapi dan gaya polaroid yang lebih kasual, disertai lightbox untuk melihat gambar secara penuh.
-- **Video**: Pustaka media berisi vlog, dokumentasi acara, dan video pembelajaran yang bersumber dari YouTube maupun berkas lokal, dengan pencarian dan filter kategori.
-- **Mode Tema**: Dukungan tampilan terang dan gelap yang dapat diubah melalui pengalih tema.
-- **Desain Responsif**: Tata letak menyesuaikan baik di perangkat desktop maupun mobile.
-- **Halaman 404**: Halaman khusus untuk rute yang tidak ditemukan, lengkap dengan navigasi kembali.
+---
 
-## Teknologi yang Digunakan
+## Getting Started
 
-Proyek ini dibangun di atas ekosistem React modern dengan sejumlah pustaka pendukung berikut.
+Tidak diperlukan instalasi maupun pembuatan akun untuk menjelajahi konten yang tersedia secara daring. Bagi yang ingin menjalankan proyek ini secara lokal, ikuti langkah pada bagian [Instalasi](#instalasi).
 
-**Inti**
-- [React 19](https://react.dev/) sebagai pustaka antarmuka pengguna
-- [TypeScript](https://www.typescriptlang.org/) untuk penulisan kode yang lebih aman dan terstruktur
-- [Vite](https://vitejs.dev/) sebagai build tool dan dev server
-- [React Router](https://reactrouter.com/) untuk manajemen routing pada sisi klien
+---
 
-**Antarmuka dan Gaya**
-- [Tailwind CSS 4](https://tailwindcss.com/) untuk styling berbasis utility class
-- [shadcn/ui](https://ui.shadcn.com/) sebagai kumpulan komponen antarmuka berbasis Radix UI
-- [Radix UI](https://www.radix-ui.com/) untuk primitif komponen yang aksesibel
-- [Framer Motion](https://www.framer.com/motion/) untuk animasi dan transisi
-- [Lucide React](https://lucide.dev/) sebagai kumpulan ikon
-- [tw-animate-css](https://github.com/Wombosvideo/tw-animate-css) untuk animasi tambahan berbasis Tailwind
+## Pages
 
-**Formulir dan Validasi**
-- [React Hook Form](https://react-hook-form.com/) untuk manajemen formulir
-- [Zod](https://zod.dev/) untuk validasi skema data
-- [@hookform/resolvers](https://github.com/react-hook-form/resolvers) sebagai penghubung antara React Hook Form dan Zod
+Aplikasi ini terbagi ke dalam enam halaman utama, masing-masing dengan fokus informasi yang berbeda.
 
-**Utilitas Lainnya**
-- [date-fns](https://date-fns.org/) untuk manipulasi tanggal
-- [Recharts](https://recharts.org/) untuk visualisasi data dalam bentuk grafik
-- [Embla Carousel](https://www.embla-carousel.com/) untuk komponen carousel
-- [Sonner](https://sonner.emilkowal.ski/) untuk notifikasi toast
-- [class-variance-authority](https://cva.style/docs) dan [clsx](https://github.com/lukeed/clsx) untuk manajemen kelas kondisional
-- [tailwind-merge](https://github.com/dcastil/tailwind-merge) untuk penggabungan kelas Tailwind tanpa konflik
+| Halaman | Rute | Deskripsi |
+|---|---|---|
+| Beranda | `/` | Ringkasan informasi kelas, statistik murid dan wali kelas, serta gambaran mata pelajaran produktif |
+| Anggota Kelas | `/students` | Direktori murid dan wali kelas lengkap dengan foto dan tautan sosial media |
+| Jadwal | `/schedule` | Jadwal pelajaran dan jadwal piket harian untuk satu minggu penuh |
+| Galeri | `/gallery` | Dokumentasi visual kegiatan kelas dalam mode grid maupun polaroid |
+| Video | `/videos` | Pustaka video berisi vlog, dokumentasi acara, dan konten pembelajaran |
+| Detail Video | `/videos/:id` | Halaman pemutaran untuk video terpilih beserta video terkait |
 
-**Perkakas Pengembangan**
-- [ESLint](https://eslint.org/) untuk linting kode
-- [Prettier](https://prettier.io/) untuk pemformatan kode otomatis
-- [Bun](https://bun.sh/) sebagai package manager utama dan runtime pengembangan
+---
 
-## Struktur Proyek
+## Core Features
+
+| Fitur | Deskripsi |
+|---|---|
+| Direktori Anggota Kelas | Pencarian dan filter murid maupun wali kelas berdasarkan nama atau jabatan, dengan mode tampilan grid dan list |
+| Jadwal Interaktif | Jadwal pelajaran dan piket yang dapat difilter per hari, lengkap dengan penanda hari aktif berjalan |
+| Galeri Dua Mode | Tampilan galeri dalam bentuk grid rapi maupun gaya polaroid, disertai lightbox untuk melihat gambar secara penuh |
+| Pustaka Video | Video dari sumber YouTube, Instagram, maupun berkas lokal, dengan pencarian dan filter kategori |
+| Mode Tema | Dukungan tampilan terang dan gelap yang dapat diubah kapan saja |
+| Desain Responsif | Tata letak yang menyesuaikan baik di perangkat desktop maupun mobile |
+| Tanpa Akun | Seluruh informasi dapat diakses secara bebas tanpa perlu masuk atau mendaftar |
+
+---
+
+## Technology
+
+| Layer | Technology |
+|---|---|
+| Frontend | React 19, TypeScript |
+| Build Tool | Vite |
+| Styling | Tailwind CSS 4, shadcn/ui, Radix UI |
+| Routing | React Router |
+| Animasi | Framer Motion |
+| Formulir & Validasi | React Hook Form, Zod |
+| Package Manager | Bun |
+| Hosting & Deployment | Vercel |
+
+---
+
+## Project Structure
 
 ```
 xii-rpl-2/
-├── public/                  # Aset statis (logo, foto murid, dan berkas publik lainnya)
+├── public/              # Aset statis (logo, foto murid, dan berkas publik lainnya)
 ├── src/
-│   ├── assets/               # Aset gambar yang diimpor langsung ke dalam kode
-│   ├── components/           # Komponen React yang dapat digunakan ulang
-│   │   └── ui/                # Komponen antarmuka dasar berbasis shadcn/ui
-│   ├── data/                  # Sumber data statis (murid, guru, jadwal, galeri, video)
+│   ├── assets/            # Aset gambar yang diimpor langsung ke dalam kode
+│   ├── components/         # Komponen React yang dapat digunakan ulang
+│   │   └── ui/               # Komponen antarmuka dasar berbasis shadcn/ui
+│   ├── data/                 # Sumber data statis (murid, guru, jadwal, galeri, video)
 │   ├── hooks/                  # Custom React hooks
-│   ├── lib/                    # Fungsi dan utilitas bantuan
-│   ├── pages/                  # Halaman-halaman utama aplikasi
-│   ├── App.tsx                  # Konfigurasi routing utama aplikasi
-│   ├── main.tsx                  # Titik masuk aplikasi React
-│   └── styles.css                 # Berkas gaya global dan konfigurasi Tailwind
-├── index.html                # Berkas HTML utama
-├── vite.config.ts            # Konfigurasi Vite
-├── tsconfig.json              # Konfigurasi TypeScript
-├── eslint.config.js            # Konfigurasi ESLint
-├── components.json              # Konfigurasi shadcn/ui
-└── package.json                  # Daftar dependensi dan skrip proyek
+│   ├── lib/                      # Fungsi dan utilitas bantuan
+│   ├── pages/                     # Halaman-halaman utama aplikasi
+│   ├── App.tsx                      # Konfigurasi routing utama aplikasi
+│   ├── main.tsx                       # Titik masuk aplikasi React
+│   └── styles.css                      # Berkas gaya global dan konfigurasi Tailwind
+├── index.html            # Berkas HTML utama
+├── vite.config.ts         # Konfigurasi Vite
+├── tsconfig.json            # Konfigurasi TypeScript
+├── components.json            # Konfigurasi shadcn/ui
+└── package.json                 # Daftar dependensi dan skrip proyek
 ```
 
-## Prasyarat
-
-Sebelum menjalankan proyek ini, pastikan perangkat sudah memiliki:
-
-- [Node.js](https://nodejs.org/) versi 18 ke atas
-- [Bun](https://bun.sh/) sebagai package manager yang direkomendasikan
-
-Sebagai alternatif, npm atau pnpm juga dapat digunakan karena berkas lock untuk keduanya turut tersedia pada proyek ini.
+---
 
 ## Instalasi
 
-1. Klon repositori ini ke perangkat lokal.
+Prasyarat: [Node.js](https://nodejs.org/) versi 18 ke atas dan [Bun](https://bun.sh/) sebagai package manager yang direkomendasikan.
+
+1. Klon repositori ini.
 
    ```bash
    git clone <url-repositori-ini>
    cd xii-rpl-2
    ```
 
-2. Pasang seluruh dependensi proyek.
+2. Pasang seluruh dependensi.
 
    ```bash
    bun install
    ```
 
-   Atau menggunakan npm:
+3. Jalankan server pengembangan.
 
    ```bash
-   npm install
+   bun dev
    ```
 
-## Menjalankan Proyek
+   Aplikasi akan berjalan pada `http://localhost:5173`.
 
-Setelah proses instalasi selesai, jalankan server pengembangan dengan perintah berikut.
-
-```bash
-bun dev
-```
-
-Secara bawaan, aplikasi akan berjalan pada `http://localhost:5173` dan dapat diakses melalui jaringan lokal karena konfigurasi server diatur untuk `host: true`.
-
-## Skrip yang Tersedia
+### Skrip yang Tersedia
 
 | Perintah | Deskripsi |
 |---|---|
 | `bun dev` | Menjalankan aplikasi dalam mode pengembangan dengan hot reload |
 | `bun run build` | Membangun aplikasi untuk lingkungan produksi |
-| `bun run build:dev` | Membangun aplikasi menggunakan mode pengembangan |
 | `bun run preview` | Menjalankan pratinjau lokal dari hasil build produksi |
 | `bun run lint` | Memeriksa kualitas dan konsistensi kode menggunakan ESLint |
 | `bun run format` | Merapikan format seluruh berkas kode menggunakan Prettier |
 
-## Build dan Deployment
+---
 
-Untuk menghasilkan berkas produksi, jalankan perintah berikut.
+## Disclaimer
 
-```bash
-bun run build
-```
+XII RPL 2 merupakan proyek yang dikembangkan untuk keperluan internal dan edukasi kelas XII RPL 2, SMK INFOKOM. Seluruh data murid, wali kelas, dan dokumentasi yang ditampilkan digunakan atas dasar persetujuan pihak kelas dan hanya ditujukan untuk kepentingan non-komersial di lingkungan kelas.
 
-Hasil build akan tersimpan pada direktori `dist/` dan siap untuk diunggah ke layanan hosting statis.
+---
 
-Proyek ini telah dikonfigurasi untuk deployment di [Vercel](https://vercel.com/) melalui berkas `vercel.json`, dengan aturan rewrite yang mengarahkan seluruh rute kembali ke `index.html` agar routing sisi klien dapat berfungsi dengan baik.
+*Dibangun oleh dan untuk XII RPL 2 - SMK INFOKOM.*
 
-## Konvensi Kode
+[Back to Top](#xii-rpl-2---smk-infokom)
 
-Proyek ini menerapkan aturan penulisan kode yang konsisten melalui ESLint dan Prettier, dengan konfigurasi sebagai berikut:
-
-- Lebar baris maksimum sebanyak 100 karakter
-- Penggunaan tanda kutip ganda pada string
-- Titik koma wajib disertakan pada akhir pernyataan
-- Trailing comma diterapkan pada seluruh elemen multi-baris
-
-Sebelum melakukan commit, disarankan untuk menjalankan `bun run lint` dan `bun run format` guna memastikan kode tetap konsisten dengan standar proyek.
-
-## Kontribusi
-
-Kontribusi dalam bentuk perbaikan maupun penambahan fitur sangat terbuka. Untuk berkontribusi, ikuti langkah berikut:
-
-1. Fork repositori ini.
-2. Buat branch baru untuk perubahan yang akan dilakukan.
-
-   ```bash
-   git checkout -b fitur/nama-fitur
-   ```
-
-3. Lakukan perubahan dan commit dengan pesan yang jelas.
-
-   ```bash
-   git commit -m "Menambahkan: deskripsi singkat perubahan"
-   ```
-
-4. Push branch ke repositori hasil fork.
-
-   ```bash
-   git push origin fitur/nama-fitur
-   ```
-
-5. Ajukan Pull Request ke repositori utama untuk ditinjau.
-
-## Lisensi
-
-Proyek ini bersifat privat dan dikembangkan untuk keperluan internal kelas XII RPL 2 SMK INFOKOM. Seluruh hak penggunaan dan penyebaran konten mengikuti kebijakan yang ditetapkan oleh pengelola kelas.
-
-## Kontak
-
-Untuk pertanyaan, masukan, atau laporan kendala terkait proyek ini, silakan hubungi pengelola kelas XII RPL 2 SMK INFOKOM.
+</div>
