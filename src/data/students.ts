@@ -65,6 +65,7 @@ export const studentsData: Student[] = [
   {
     id: 11, no: "12", name: "Irsyad", fullName: "IRSYAD MUSYAFFA",
     age: 17, birthdate: "20 April 2009", position: "-", kreditPoin: "100",
+    photo: "/photos/icad.png",
     socials: { instagram: "https://www.instagram.com/cad_affa/" }
   },
   {
