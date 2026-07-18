@@ -36,7 +36,7 @@ export const lessonSchedule: Record<string, ScheduleItem[]> = {
     { time: "07.00 - 08.30", subject: "PBO" },
     { time: "08.30 - 10.00", subject: "Matematika" },
     { time: "10.00 - 10.30", subject: "Istirahat" },
-    { time: "10.30 - 12.00", subject: "KIK" },
+    { time: "10.30 - 12.00", subject: "Prakarya" },
     { time: "12.00 - 12.30", subject: "Istirahat" },
     { time: "12.30 - 15.30", subject: "PWM" },
   ],
@@ -51,7 +51,7 @@ export const lessonSchedule: Record<string, ScheduleItem[]> = {
   ],
   jumat: [
     { time: "06.30 - 07.00", subject: "Karakter" },
-    { time: "07.00 - 08.20", subject: "KIK" },
+    { time: "07.00 - 08.20", subject: "Prakarya" },
     { time: "08.20 - 09.40", subject: "PABP" },
     { time: "09.40 - 10.00", subject: "Istirahat" },
     { time: "10.00 - 10.40", subject: "PABP" },
@@ -76,7 +76,7 @@ export const scheduleDetails: Record<string, ScheduleDetail[]> = {
   rabu: [
     { subject: "Pemrograman Berorientasi Objek (PBO)", teacher: "Erwin Hasiholan G., S.Kom." },
     { subject: "Matematika", teacher: "Mila Yaelasari, M.Pd" },
-    { subject: "Kreativitas, Inovasi, dan Kewirausahaan (KIK)", teacher: "Vera Yuni Astuti, SP., M.I.Kom,Gr" },
+    { subject: "Kreativitas, Inovasi, dan Kewirausahaan (Prakarya)", teacher: "Vera Yuni Astuti, SP., M.I.Kom,Gr" },
     { subject: "Pemrograman Web dan Mobile (PWM)", teacher: "Richo Santana, S.Kom" },
   ],
   kamis: [
@@ -86,7 +86,7 @@ export const scheduleDetails: Record<string, ScheduleDetail[]> = {
     { subject: "Pemrograman Berorientasi Objek (PBO)", teacher: "Erwin Hasiholan G., S.Kom." },
   ],
   jumat: [
-    { subject: "Kreativitas, Inovasi, dan Kewirausahaan (KIK)", teacher: "Vera Yuni Astuti, SP., M.I.Kom,Gr" },
+    { subject: "Kreativitas, Inovasi, dan Kewirausahaan (Prakarya)", teacher: "Vera Yuni Astuti, SP., M.I.Kom,Gr" },
     { subject: "Pendidikan Agama dan Budi Pekerti (PABP)", teacher: "Dra. Popon Puspitasar" },
     { subject: "Pemrograman GIM", teacher: "Erwin Hasiholan G., S.Kom." },
   ],
