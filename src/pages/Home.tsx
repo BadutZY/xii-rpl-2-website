@@ -397,13 +397,21 @@ export default function HomePage() {
                   transition={{ duration: 0.5 }}
                   className="inline-flex items-center gap-2 rounded-full border border-border bg-background/70 px-3 py-1 backdrop-blur"
                 >
+                  
                   <span className="relative flex h-2 w-2">
+                    <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-red-500 opacity-60" />
+                    <span className="relative inline-flex h-2 w-2 rounded-full bg-red-500" />
+                  </span>
+                  <span className="text-[11px] font-medium uppercase tracking-widest text-muted-foreground">
+                    Belum Tersedia
+                  </span>
+                  {/* <span className="relative flex h-2 w-2">
                     <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-emerald-500 opacity-60" />
                     <span className="relative inline-flex h-2 w-2 rounded-full bg-emerald-500" />
                   </span>
                   <span className="text-[11px] font-medium uppercase tracking-widest text-muted-foreground">
                     Tersedia untuk Android
-                  </span>
+                  </span> */}
                 </motion.div>
 
                 <motion.h2
