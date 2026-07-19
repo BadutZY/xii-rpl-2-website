@@ -75,7 +75,9 @@ const StudentModal = ({ student, onClose }: Props) => {
               </div>
 
               <h3 className="text-xl font-bold font-heading gradient-text mb-1">{student.fullName}</h3>
-              <p className="text-primary text-sm mb-4">{student.position}</p>
+              <p className="text-primary text-sm mb-4">
+                {student.position && student.position !== "-" ? student.position : "Anggota"}
+              </p>
 
               <div className="text-sm text-muted-foreground mb-6 inline-block text-left">
                 <table className="border-separate" style={{ borderSpacing: "0 4px" }}>
