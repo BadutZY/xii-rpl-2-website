@@ -41,7 +41,7 @@ const stats = [
 // Ganti path, versi, dan ukuran file sesuai file .apk yang kamu upload ke folder /public.
 const APK_DOWNLOAD = {
   url: "https://github.com/BadutZY/xi-rpl-2-app/releases/download/NEW-APP/xii-rpl-2.apk",
-  version: "1.5.0",
+  version: "2.5.0",
   size: "150 MB",
 };
 
@@ -336,7 +336,7 @@ export default function HomePage() {
               title="Jadwal Pelajaran"
               desc="Jadwal harian, piket, dan agenda kelas untuk seminggu penuh."
               className="md:col-span-3"
-              tag="Senin – Jumat"
+              tag="Senin - Jumat"
             />
             <QuickCard
               to="/gallery"
@@ -394,21 +394,13 @@ export default function HomePage() {
                   transition={{ duration: 0.5 }}
                   className="inline-flex items-center gap-2 rounded-full border border-border bg-background/70 px-3 py-1 backdrop-blur"
                 >
-                  
                   <span className="relative flex h-2 w-2">
-                    <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-red-500 opacity-60" />
-                    <span className="relative inline-flex h-2 w-2 rounded-full bg-red-500" />
-                  </span>
-                  <span className="text-[11px] font-medium uppercase tracking-widest text-muted-foreground">
-                    Belum Tersedia
-                  </span>
-                  {/* <span className="relative flex h-2 w-2">
                     <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-emerald-500 opacity-60" />
                     <span className="relative inline-flex h-2 w-2 rounded-full bg-emerald-500" />
                   </span>
                   <span className="text-[11px] font-medium uppercase tracking-widest text-muted-foreground">
                     Tersedia untuk Android
-                  </span> */}
+                  </span>
                 </motion.div>
 
                 <motion.h2
@@ -433,7 +425,7 @@ export default function HomePage() {
                   buka lewat browser.
                 </motion.p>
 
-                {/* <div className="mt-8 grid grid-cols-1 gap-3 sm:grid-cols-3">
+                <div className="mt-8 grid grid-cols-1 gap-3 sm:grid-cols-3">
                   {[
                     { icon: WifiOff, label: "Tanpa koneksi internet" },
                     { icon: Smartphone, label: "Android 8.0 ke atas" },
@@ -455,7 +447,7 @@ export default function HomePage() {
                       <span className="text-xs font-medium text-foreground">{f.label}</span>
                     </motion.div>
                   ))}
-                </div> */}
+                </div>
 
                 <motion.div
                   initial={{ opacity: 0, y: 16 }}
@@ -465,14 +457,6 @@ export default function HomePage() {
                   className="mt-9 flex flex-wrap items-center gap-4"
                 >
                   <motion.a
-                    whileHover={{ y: -2 }}
-                    whileTap={{ scale: 0.97 }}
-                    transition={{ type: "tween", duration: 0.15, ease: "easeOut" }}
-                    className="btn-primary btn-shine inline-flex items-center gap-2.5 rounded-full px-6 py-3 text-sm font-semibold shadow-[var(--shadow-md)]"
-                  >
-                    Coming Soon
-                  </motion.a>
-                  {/* <motion.a
                     href={APK_DOWNLOAD.url}
                     download
                     whileHover={{ scale: 1.04, y: -2 }}
@@ -485,7 +469,7 @@ export default function HomePage() {
                   </motion.a>
                   <span className="text-xs text-muted-foreground">
                     v{APK_DOWNLOAD.version} · {APK_DOWNLOAD.size}
-                  </span> */}
+                  </span>
                 </motion.div>
 
                 <p className="mt-5 text-xs text-muted-foreground/80">
