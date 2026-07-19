@@ -42,7 +42,7 @@ const stats = [
 const APK_DOWNLOAD = {
   url: "https://github.com/BadutZY/xi-rpl-2-app/releases/download/NEW-APP/xii-rpl-2.apk",
   version: "1.5.0",
-  size: "127 MB",
+  size: "150 MB",
 };
 
 const lessons = [
@@ -428,7 +428,7 @@ export default function HomePage() {
                   buka lewat browser.
                 </motion.p>
 
-                <div className="mt-8 grid grid-cols-1 gap-3 sm:grid-cols-3">
+                {/* <div className="mt-8 grid grid-cols-1 gap-3 sm:grid-cols-3">
                   {[
                     { icon: WifiOff, label: "Tanpa koneksi internet" },
                     { icon: Smartphone, label: "Android 8.0 ke atas" },
@@ -450,7 +450,7 @@ export default function HomePage() {
                       <span className="text-xs font-medium text-foreground">{f.label}</span>
                     </motion.div>
                   ))}
-                </div>
+                </div> */}
 
                 <motion.div
                   initial={{ opacity: 0, y: 16 }}
@@ -460,6 +460,14 @@ export default function HomePage() {
                   className="mt-9 flex flex-wrap items-center gap-4"
                 >
                   <motion.a
+                    whileHover={{ scale: 1.04, y: -2 }}
+                    whileTap={{ scale: 0.97 }}
+                    transition={{ type: "spring", stiffness: 400, damping: 20 }}
+                    className="btn-primary btn-shine inline-flex items-center gap-2.5 rounded-full px-6 py-3 text-sm font-semibold shadow-[var(--shadow-md)]"
+                  >
+                    Coming Soon
+                  </motion.a>
+                  {/* <motion.a
                     href={APK_DOWNLOAD.url}
                     download
                     whileHover={{ scale: 1.04, y: -2 }}
@@ -472,7 +480,7 @@ export default function HomePage() {
                   </motion.a>
                   <span className="text-xs text-muted-foreground">
                     v{APK_DOWNLOAD.version} · {APK_DOWNLOAD.size}
-                  </span>
+                  </span> */}
                 </motion.div>
 
                 <p className="mt-5 text-xs text-muted-foreground/80">
