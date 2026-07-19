@@ -787,3 +787,83 @@
     linear-gradient(to bottom, color-mix(in oklab, var(--ink) 6%, transparent) 1px, transparent 1px);
   background-size: 44px 44px;
 }
+
+/* ─────────────────────────────────────────────
+   Lightweight animations — Download App section
+   Transform/opacity-only so the browser can run
+   them on the compositor thread instead of
+   repainting on every frame (much less lag than
+   animating position/filter with JS).
+   ───────────────────────────────────────────── */
+.orb-drift-a,
+.orb-drift-b {
+  will-change: transform;
+}
+.orb-drift-a {
+  animation: orb-drift-a-move 14s ease-in-out infinite;
+}
+.orb-drift-b {
+  animation: orb-drift-b-move 16s ease-in-out infinite;
+  animation-delay: 0.5s;
+}
+@keyframes orb-drift-a-move {
+  0%, 100% { transform: translate3d(0, 0, 0); }
+  50% { transform: translate3d(20px, 14px, 0); }
+}
+@keyframes orb-drift-b-move {
+  0%, 100% { transform: translate3d(0, 0, 0); }
+  50% { transform: translate3d(-16px, -12px, 0); }
+}
+
+.spin-slow {
+  animation: spin-slow-rotate 18s linear infinite;
+  will-change: transform;
+}
+@keyframes spin-slow-rotate {
+  to { transform: rotate(360deg); }
+}
+
+.float-badge {
+  animation: float-badge-move 5.5s ease-in-out infinite;
+  will-change: transform;
+}
+@keyframes float-badge-move {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-8px); }
+}
+
+.btn-shine {
+  position: relative;
+  overflow: hidden;
+  isolation: isolate;
+}
+.btn-shine::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -60%;
+  width: 35%;
+  height: 100%;
+  background: linear-gradient(115deg, transparent, rgba(255, 255, 255, 0.4), transparent);
+  transform: skewX(-20deg) translateX(-20%);
+  opacity: 0;
+  animation: btn-shine-sweep 3.6s ease-in-out infinite;
+  animation-delay: 1s;
+  pointer-events: none;
+  will-change: transform, opacity;
+}
+@keyframes btn-shine-sweep {
+  0%, 12% { transform: skewX(-20deg) translateX(-20%); opacity: 0; }
+  25% { opacity: 1; }
+  55%, 100% { transform: skewX(-20deg) translateX(340%); opacity: 0; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .orb-drift-a,
+  .orb-drift-b,
+  .spin-slow,
+  .float-badge,
+  .btn-shine::after {
+    animation: none !important;
+  }
+}

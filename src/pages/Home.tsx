@@ -362,26 +362,23 @@ export default function HomePage() {
       <section id="download-app" className="relative overflow-hidden border-t border-border">
         <div className="container-page py-20 md:py-28">
           <motion.div
-            initial={{ opacity: 0, y: 40, scale: 0.97 }}
-            whileInView={{ opacity: 1, y: 0, scale: 1 }}
+            initial={{ opacity: 0, y: 24 }}
+            whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: "-100px" }}
-            transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
+            transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
             className="relative overflow-hidden rounded-[2rem] border border-border bg-gradient-to-br from-surface via-card-bg to-surface-2 p-8 shadow-[var(--shadow-lg)] md:p-16"
           >
-            {/* Ambient floating glow orbs */}
-            <motion.div
+            {/* Ambient floating glow orbs — plain CSS animation (transform-only),
+               much lighter on the main thread than the previous JS-driven version. */}
+            <div
               aria-hidden
-              className="pointer-events-none absolute -left-28 -top-28 h-80 w-80 rounded-full blur-3xl"
+              className="orb-drift-a pointer-events-none absolute -left-24 -top-24 h-56 w-56 rounded-full blur-2xl"
               style={{ background: "var(--gradient-primary)", opacity: 0.12 }}
-              animate={{ x: [0, 26, 0], y: [0, 18, 0] }}
-              transition={{ duration: 11, repeat: Infinity, ease: "easeInOut" }}
             />
-            <motion.div
+            <div
               aria-hidden
-              className="pointer-events-none absolute -bottom-24 -right-20 h-72 w-72 rounded-full blur-3xl"
+              className="orb-drift-b pointer-events-none absolute -bottom-20 -right-16 h-48 w-48 rounded-full blur-2xl"
               style={{ background: "var(--gradient-primary)", opacity: 0.1 }}
-              animate={{ x: [0, -22, 0], y: [0, -16, 0] }}
-              transition={{ duration: 13, repeat: Infinity, ease: "easeInOut", delay: 1 }}
             />
             <div
               aria-hidden
@@ -415,10 +412,10 @@ export default function HomePage() {
                 </motion.div>
 
                 <motion.h2
-                  initial={{ opacity: 0, y: 20, filter: "blur(6px)" }}
-                  whileInView={{ opacity: 1, y: 0, filter: "blur(0px)" }}
+                  initial={{ opacity: 0, y: 16 }}
+                  whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
-                  transition={{ duration: 0.7, delay: 0.1, ease: [0.22, 1, 0.36, 1] }}
+                  transition={{ duration: 0.55, delay: 0.1, ease: [0.22, 1, 0.36, 1] }}
                   className="mt-5 font-heading text-3xl font-semibold tracking-tight text-foreground text-balance md:text-5xl"
                 >
                   Bawa <span className="gradient-text">Aplikasi XII RPL 2</span> di HP-mu.
@@ -468,9 +465,9 @@ export default function HomePage() {
                   className="mt-9 flex flex-wrap items-center gap-4"
                 >
                   <motion.a
-                    whileHover={{ scale: 1.04, y: -2 }}
+                    whileHover={{ y: -2 }}
                     whileTap={{ scale: 0.97 }}
-                    transition={{ type: "spring", stiffness: 400, damping: 20 }}
+                    transition={{ type: "tween", duration: 0.15, ease: "easeOut" }}
                     className="btn-primary btn-shine inline-flex items-center gap-2.5 rounded-full px-6 py-3 text-sm font-semibold shadow-[var(--shadow-md)]"
                   >
                     Coming Soon
@@ -498,10 +495,10 @@ export default function HomePage() {
               </div>
 
               <motion.div
-                initial={{ opacity: 0, scale: 0.8, rotate: -6 }}
-                whileInView={{ opacity: 1, scale: 1, rotate: 0 }}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
-                transition={{ duration: 0.8, delay: 0.2, ease: [0.22, 1, 0.36, 1] }}
+                transition={{ duration: 0.6, delay: 0.15, ease: [0.22, 1, 0.36, 1] }}
                 className="relative flex justify-center md:justify-end"
               >
                 <div className="relative flex h-52 w-52 items-center justify-center md:h-64 md:w-64">
