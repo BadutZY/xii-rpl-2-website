@@ -7,14 +7,14 @@ const navLinks = [
   { to: "/", label: "Home" },
   { to: "/", hash: "about", label: "About" },
   { to: "/", hash: "technologies", label: "Lessons" },
-  
+  { to: "/", hash: "download-app", label: "Download App" },
   { to: "/gallery", label: "Gallery" },
   { to: "/videos", label: "Videos" },
   { to: "/students", label: "Students" },
   { to: "/schedule", label: "Schedules" },
 ] as const;
 
-const SPY_IDS = ["about", "technologies", "gallery"] as const;
+const SPY_IDS = ["about", "technologies", "download-app", "gallery"] as const;
 
 type NavLink = (typeof navLinks)[number];
 type SpyId = (typeof SPY_IDS)[number];

@@ -11,6 +11,10 @@ import {
   Images,
   PlayCircle,
   Sparkles,
+  Download,
+  Smartphone,
+  ShieldCheck,
+  WifiOff,
 } from "lucide-react";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
@@ -33,6 +37,13 @@ const stats = [
   { label: "Wali Kelas", value: teachersData.length.toString().padStart(2, "0") },
   { label: "Hari sekolah", value: "05" },
 ];
+
+// Ganti path, versi, dan ukuran file sesuai file .apk yang kamu upload ke folder /public.
+const APK_DOWNLOAD = {
+  url: "https://github.com/BadutZY/xi-rpl-2-app/releases/download/NEW-APP/xii-rpl-2.apk",
+  version: "1.5.0",
+  size: "127 MB",
+};
 
 const lessons = [
   {
@@ -126,12 +137,24 @@ export default function HomePage() {
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.7, duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
               >
-                <Link
-                  to="/students"
+                <a
+                  href="#download-app"
+                  onClick={(e) => {
+                    e.preventDefault();
+                    const section = document.getElementById("download-app");
+                    if (!section) return;
+                    const header = document.querySelector("header.nav-header");
+                    const offset = (header ? header.getBoundingClientRect().height : 72) + 8;
+                    window.scrollTo({
+                      top: window.scrollY + section.getBoundingClientRect().top - offset,
+                      behavior: "smooth",
+                    });
+                    window.history.pushState(null, "", "#download-app");
+                  }}
                   className="btn-primary inline-flex items-center gap-2 rounded-full px-5 py-2.5 text-sm font-medium"
                 >
-                  Jelajahi Kelas <ArrowRight size={16} />
-                </Link>
+                  Download Aplikasi <ArrowRight size={16} />
+                </a>
                 <Link
                   to="/schedule"
                   className="btn-secondary-outline inline-flex items-center gap-2 rounded-full px-5 py-2.5 text-sm font-medium"
@@ -332,6 +355,163 @@ export default function HomePage() {
               tag="Video"
             />
           </div>
+        </div>
+      </section>
+
+      {/* ─── DOWNLOAD APP ─────────────────────────────────────── */}
+      <section id="download-app" className="relative overflow-hidden border-t border-border">
+        <div className="container-page py-20 md:py-28">
+          <motion.div
+            initial={{ opacity: 0, y: 40, scale: 0.97 }}
+            whileInView={{ opacity: 1, y: 0, scale: 1 }}
+            viewport={{ once: true, margin: "-100px" }}
+            transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
+            className="relative overflow-hidden rounded-[2rem] border border-border bg-gradient-to-br from-surface via-card-bg to-surface-2 p-8 shadow-[var(--shadow-lg)] md:p-16"
+          >
+            {/* Ambient floating glow orbs */}
+            <motion.div
+              aria-hidden
+              className="pointer-events-none absolute -left-28 -top-28 h-80 w-80 rounded-full blur-3xl"
+              style={{ background: "var(--gradient-primary)", opacity: 0.12 }}
+              animate={{ x: [0, 26, 0], y: [0, 18, 0] }}
+              transition={{ duration: 11, repeat: Infinity, ease: "easeInOut" }}
+            />
+            <motion.div
+              aria-hidden
+              className="pointer-events-none absolute -bottom-24 -right-20 h-72 w-72 rounded-full blur-3xl"
+              style={{ background: "var(--gradient-primary)", opacity: 0.1 }}
+              animate={{ x: [0, -22, 0], y: [0, -16, 0] }}
+              transition={{ duration: 13, repeat: Infinity, ease: "easeInOut", delay: 1 }}
+            />
+            <div
+              aria-hidden
+              className="pointer-events-none absolute inset-0 grid-pattern opacity-[0.35]"
+            />
+
+            <div className="relative grid gap-12 md:grid-cols-[1.2fr_1fr] md:items-center">
+              <div>
+                <motion.div
+                  initial={{ opacity: 0, y: 12 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.5 }}
+                  className="inline-flex items-center gap-2 rounded-full border border-border bg-background/70 px-3 py-1 backdrop-blur"
+                >
+                  <span className="relative flex h-2 w-2">
+                    <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-emerald-500 opacity-60" />
+                    <span className="relative inline-flex h-2 w-2 rounded-full bg-emerald-500" />
+                  </span>
+                  <span className="text-[11px] font-medium uppercase tracking-widest text-muted-foreground">
+                    Tersedia untuk Android
+                  </span>
+                </motion.div>
+
+                <motion.h2
+                  initial={{ opacity: 0, y: 20, filter: "blur(6px)" }}
+                  whileInView={{ opacity: 1, y: 0, filter: "blur(0px)" }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.7, delay: 0.1, ease: [0.22, 1, 0.36, 1] }}
+                  className="mt-5 font-heading text-3xl font-semibold tracking-tight text-foreground text-balance md:text-5xl"
+                >
+                  Bawa <span className="gradient-text">Aplikasi XII RPL 2</span> di HP-mu.
+                </motion.h2>
+
+                <motion.p
+                  initial={{ opacity: 0, y: 16 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.6, delay: 0.2 }}
+                  className="mt-5 max-w-lg text-sm leading-relaxed text-muted-foreground md:text-base"
+                >
+                  Unduh aplikasi resmi kelas XII RPL 2 dan akses jadwal, murid, guru, galeri,
+                  serta arsip video langsung dari HP kamu. Lebih cepat dan praktis dibanding
+                  buka lewat browser.
+                </motion.p>
+
+                <div className="mt-8 grid grid-cols-1 gap-3 sm:grid-cols-3">
+                  {[
+                    { icon: WifiOff, label: "Tanpa koneksi internet" },
+                    { icon: Smartphone, label: "Android 8.0 ke atas" },
+                    { icon: ShieldCheck, label: "Aman & tanpa iklan" },
+                  ].map((f, i) => (
+                    <motion.div
+                      key={f.label}
+                      custom={i}
+                      variants={fadeUp}
+                      initial="hidden"
+                      whileInView="visible"
+                      viewport={{ once: true }}
+                      whileHover={{ y: -3 }}
+                      className="flex items-center gap-2.5 rounded-xl border border-border bg-background/60 px-3.5 py-2.5 shadow-[var(--shadow-xs)] backdrop-blur transition-shadow hover:shadow-[var(--shadow-md)]"
+                    >
+                      <span className="icon-badge flex h-7 w-7 shrink-0 items-center justify-center rounded-lg">
+                        <f.icon size={14} />
+                      </span>
+                      <span className="text-xs font-medium text-foreground">{f.label}</span>
+                    </motion.div>
+                  ))}
+                </div>
+
+                <motion.div
+                  initial={{ opacity: 0, y: 16 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.6, delay: 0.35 }}
+                  className="mt-9 flex flex-wrap items-center gap-4"
+                >
+                  <motion.a
+                    href={APK_DOWNLOAD.url}
+                    download
+                    whileHover={{ scale: 1.04, y: -2 }}
+                    whileTap={{ scale: 0.97 }}
+                    transition={{ type: "spring", stiffness: 400, damping: 20 }}
+                    className="btn-primary btn-shine inline-flex items-center gap-2.5 rounded-full px-6 py-3 text-sm font-semibold shadow-[var(--shadow-md)]"
+                  >
+                    <Download size={18} />
+                    Download Aplikasi (.apk)
+                  </motion.a>
+                  <span className="text-xs text-muted-foreground">
+                    v{APK_DOWNLOAD.version} · {APK_DOWNLOAD.size}
+                  </span>
+                </motion.div>
+
+                <p className="mt-5 text-xs text-muted-foreground/80">
+                  File akan terunduh langsung. Jika muncul peringatan &ldquo;sumber tidak
+                  dikenal&rdquo;, izinkan instalasi dari luar Play Store di pengaturan HP kamu.
+                </p>
+              </div>
+
+              <motion.div
+                initial={{ opacity: 0, scale: 0.8, rotate: -6 }}
+                whileInView={{ opacity: 1, scale: 1, rotate: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.8, delay: 0.2, ease: [0.22, 1, 0.36, 1] }}
+                className="relative flex justify-center md:justify-end"
+              >
+                <div className="relative flex h-52 w-52 items-center justify-center md:h-64 md:w-64">
+                  <span
+                    aria-hidden
+                    className="spin-slow absolute inset-0 rounded-full border border-dashed border-border/70"
+                  />
+                  <span
+                    aria-hidden
+                    className="absolute inset-6 rounded-full opacity-25 blur-2xl"
+                    style={{ background: "var(--gradient-primary)" }}
+                  />
+                  <div className="float-badge relative flex h-40 w-40 items-center justify-center rounded-[2rem] icon-badge shadow-xl md:h-48 md:w-48">
+                    <img
+                      src="/logo.png"
+                      alt="Logo XII RPL 2"
+                      className="h-24 w-24 rounded-2xl object-cover md:h-28 md:w-28"
+                    />
+                    <span className="absolute -bottom-3 whitespace-nowrap rounded-full border border-border bg-background px-3 py-1 text-[11px] font-medium text-muted-foreground shadow-sm">
+                      XII RPL 2 App
+                    </span>
+                  </div>
+                </div>
+              </motion.div>
+            </div>
+          </motion.div>
         </div>
       </section>
 
